@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Frontend Mentor | Product preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Mulish:ital@1&family=Roboto:wght@500;700&display=swap");
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      body {
+        font-family: Montserrat;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        margin: 0;
+        flex-direction: column;
+        background-color: rgb(240, 237, 233);
+      }
+      .pic {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        background-position: center center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+      }
+      .container {
+        overflow: hidden;
+        position: relative;
+        max-width: 1440px;
+        width: 56%;
+        text-align: end;
+        background-color: #fff;
+        max-height: 80%;
+        height: 65%;
+        margin: 0;
+        border-radius: 10px;
+      }
+      .mobile-pic {
+        display: none;
+        opacity: 0;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+        width: 50%;
+        text-align: center;
+      }
+      .prev {
+        text-align: start;
+        font-family: inherit;
+        margin-left: 0.8rem;
+        color: hsl(228, 12%, 48%);
+        letter-spacing: 0.1rem;
+        margin-right: 0.5rem;
+      }
+      .brand {
+        text-align: start;
+        margin-left: 0.8rem;
+        font-size: 1.8rem;
+        font-family: inherit;
+        font: 700;
+        margin-right: 0.5rem;
+      }
+      .moto {
+        text-align: start;
+        margin-left: 0.8rem;
+        font-size: 14px;
+        color: hsl(228, 12%, 48%);
+        margin-right: 1.5rem;
+      }
+      .price {
+        text-align: start;
+        margin-left: 1rem;
+        word-spacing: 1rem;
+      }
+      span {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: hsl(158, 36%, 37%);
+      }
+      sup {
+        color: hsl(228, 12%, 48%);
+        font-size: 14px;
+        text-decoration: line-through;
+      }
+      .btn {
+        background-color: hsl(158, 36%, 37%);
+        border: 0;
+        padding: 15px 20px;
+        border-radius: 10px;
+        color: hsl(0, 0%, 100%);
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 5%;
+        width: 85%;
+        margin-right: 10%;
+      }
+      i {
+        margin-right: 10px;
+      }
+
+      @media (max-width: 1440px) {
+        .btn {
+          position: absolute;
+          left: 5%;
+          bottom: -45%;
+        }
+      }
+      @media (max-width: 786px) {
+        .container {
+          height: 75%;
+          width: 85%;
+        }
+      }
+      @media (max-width: 1021px) and (min-width: 461px) {
+        .container {
+          height: 100%;
+          width: 90%;
+        }
+        .right {
+          margin: 0;
+        }
+        .btn {
+          margin: 0;
+        }
+      }
+
+      @media (max-width: 440px) {
+        .container {
+          height: 100%;
+          width: 100%;
+          font-size: 12px;
+          overflow-y: scroll;
+        }
+
+        .pic {
+          display: none;
+        }
+        .mobile-pic {
+          display: block;
+          opacity: 1;
+          right: 0;
+          width: 100%;
+        }
+        .prev {
+          margin-bottom: 0%;
+          padding-top: 0%;
+        }
+        .right {
+          position: absolute;
+          left: 0%;
+          height: 100;
+          width: 100%;
+        }
+        .moto {
+          margin-right: 3.9rem;
+          padding-top: 0%;
+        }
+        .btn {
+          margin-left: 5%;
+          padding-left: 18%;
+          padding-right: 18%;
+          margin-bottom: 1rem;
+          margin-right: 25%;
+          overflow-x: hidden;
+          margin-top: 5px;
+          width: 80%;
+        }
+        .price {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+        .brand {
+          font-size: 1.5rem;
+          padding-top: 0%;
+          margin-right: 25%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="mobile-pic" src="images/image-product-mobile.jpg" alt="" />
+      <img class="pic" src="images/image-product-desktop.jpg" alt="" />
+      <div class="right">
+        <h4 class="prev">PERFUME</h4>
+        <h2 class="brand">Gabrielle Essence Eau De Parfum</h2>
+        <p class="moto">
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+
+        <p class="price"><span>$149.99</span> <sup>$169.99</sup></p>
+
+        <button class="btn">
+          <i class="fas fa-shopping-cart"></i>
+          Add to Cart
+        </button>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
